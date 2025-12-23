@@ -3,9 +3,6 @@ package com.example.lab2.io;
 import com.example.lab2.model.Sedan;
 import java.util.Scanner;
 
-/**
- * Простейший ввод/вывод для демонстрации требования лабы.
- */
 public class ConsoleIO {
 
     public static Sedan readSedanFromStdin() {

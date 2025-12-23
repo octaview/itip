@@ -3,7 +3,6 @@ package com.example.lab6.structure;
 import java.util.Arrays;
 import java.util.EmptyStackException;
 
-// Задание 2: Обобщенный стек
 public class Stack<T> {
     private T[] data;
     private int size;
@@ -11,6 +10,7 @@ public class Stack<T> {
 
     @SuppressWarnings("unchecked")
     public Stack(int capacity) {
+        if (capacity <= 0) throw new IllegalArgumentException("capacity must be > 0");
         data = (T[]) new Object[capacity];
         size = 0;
     }
@@ -21,7 +21,6 @@ public class Stack<T> {
 
     public void push(T element) {
         if (size == data.length) {
-            // Увеличиваем массив в 2 раза
             data = Arrays.copyOf(data, data.length * 2);
         }
         data[size++] = element;
@@ -30,7 +29,7 @@ public class Stack<T> {
     public T pop() {
         if (size == 0) throw new EmptyStackException();
         T element = data[--size];
-        data[size] = null; // предотвращаем утечку памяти
+        data[size] = null;
         return element;
     }
 
@@ -38,6 +37,8 @@ public class Stack<T> {
         if (size == 0) throw new EmptyStackException();
         return data[size - 1];
     }
-    
+
     public int size() { return size; }
+
+    public boolean isEmpty() { return size == 0; }
 }
