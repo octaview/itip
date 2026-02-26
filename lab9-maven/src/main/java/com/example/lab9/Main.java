@@ -7,26 +7,26 @@ public class Main {
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
-        logger.info("Начало выполнения приложения (Maven проект).");
+        logger.info("начало выполнения приложения");
 
-        User user = new User("Иван Иванов", 20, "ivanov@example.com");
-        logger.debug("Создан тестовый объект пользователя: {}", user.getName());
+        User user = new User("кирюха octaview", 67, "octaview@gmail.com");
+        logger.debug("создан тестовый объект пользователя: {}", user.getName());
 
         JsonSerializer serializer = new JsonSerializer();
 
         String jsonResult = serializer.serialize(user);
-        logger.info("Результат сериализации (JSON): {}", jsonResult);
+        logger.info("результат сериализации жсон: {}", jsonResult);
 
         if (jsonResult != null) {
             User deserializedUser = serializer.deserialize(jsonResult, User.class);
             if (deserializedUser != null) {
-                logger.info("Объект успешно десериализован. Имя: {}, Почта: {}",
+                logger.info("юзер успешно десериализован - имя: {}, почта: {}",
                         deserializedUser.getName(), deserializedUser.getEmail());
             } else {
-                logger.error("Десериализация вернула null.");
+                logger.error("десериализация вернула null");
             }
         }
 
-        logger.info("Приложение успешно завершило работу.");
+        logger.info("успешное завершение работы");
     }
 }

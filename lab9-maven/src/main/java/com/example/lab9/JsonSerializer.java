@@ -17,7 +17,7 @@ public class JsonSerializer {
         try {
             return objectMapper.writeValueAsString(obj);
         } catch (JsonProcessingException e) {
-            logger.error("Ошибка при сериализации объекта в JSON", e);
+            logger.error("ошибка при сериализации объекта в жсон", e);
             return null;
         }
     }
@@ -26,7 +26,7 @@ public class JsonSerializer {
         try {
             return objectMapper.readValue(json, clazz);
         } catch (JsonProcessingException e) {
-            logger.error("Ошибка при десериализации JSON в объект", e);
+            logger.error("ошибка при десериализации жсон в объект", e);
             return null;
         }
     }
