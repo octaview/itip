@@ -63,7 +63,7 @@ abstract class GenerateBuildInfoTask : DefaultTask() {
         props.setProperty("build.java", System.getProperty("java.version"))
         // юзаем импортированный LocalDateTime напрямую
         props.setProperty("build.date", LocalDateTime.now().toString())
-        props.setProperty("build.message", "йоу, привет от грейдла!")
+        props.setProperty("build.message", "салам")
         props.setProperty("build.commit", gitCommitHash.get())
 
         // сохраняем в ресурсы
@@ -79,7 +79,7 @@ abstract class GenerateBuildInfoTask : DefaultTask() {
     }
 }
 
-// достаем хэш гита (переписано на ProcessBuilder для новых версий java)
+// достаем хэш гита
 fun getGitHash(): String {
     return try {
         val process = ProcessBuilder("git", "rev-parse", "--short", "HEAD").start()
